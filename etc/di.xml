@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Fix for changelog tables not having unique key on entity_id -->
+    <preference for="Magento\Framework\Mview\View\Changelog" type="Rival\MviewFix\Magento\Framework\Mview\View\Changelog"/>
+</config>
