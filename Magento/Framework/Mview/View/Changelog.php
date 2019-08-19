@@ -39,11 +39,13 @@ class Changelog extends \Magento\Framework\Mview\View\Changelog
         }
 
         $this->connection->dropIndex($changelogTableName, $indexName);
-        $this->connection->addIndex(
-            $changelogTableName,
-            $indexName,
-            [$this->getColumnName()],
-            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
-        );
+        if ($changelogTableName == 'algolia_products_cl') {
+            $this->connection->addIndex(
+                $changelogTableName,
+                $indexName,
+                [$this->getColumnName()],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+            );
+        }
     }
 }
